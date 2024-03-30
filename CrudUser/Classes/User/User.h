@@ -8,6 +8,7 @@ class User : public ConnectDB
 {
 	sql::Statement* statement;
 	sql::PreparedStatement* preparedStatement;
+	sql::ResultSet* res;
 
 
 	void createUserTable();
@@ -17,6 +18,7 @@ public:
 	~User();
 
 	void insertUser(std::string name, int dni);
+	void selectAllUsers();
 
 };
 

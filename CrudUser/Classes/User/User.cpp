@@ -48,3 +48,20 @@ void User::insertUser(std::string name, int dni)
 	}
 
 }
+
+void User::selectAllUsers()
+{
+	statement = con->createStatement();
+	res = statement->executeQuery("SELECT*FROM users");
+
+	while (res->next())
+	{
+		std::cout << "ID: " << res->getInt("id")
+			<< ", Nombre: " << res->getString("name")
+			<< ", DNI; " << res->getInt("dni")
+			<< std:: endl;
+	}
+
+	delete statement;
+	delete res;
+}

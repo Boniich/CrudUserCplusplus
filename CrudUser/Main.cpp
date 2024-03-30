@@ -20,6 +20,7 @@ int main()
     User user;
 
     user.insertUser("Ezequiel", 36069300);
+    user.selectAllUsers();
 
     //ConnectDB connect;
     //system("pause");
