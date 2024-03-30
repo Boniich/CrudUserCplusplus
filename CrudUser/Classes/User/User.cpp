@@ -28,3 +28,23 @@ void User::createUserTable()
 	delete statement;
 	
 }
+
+void User::insertUser(std::string name, int dni)
+{
+	try
+	{
+		preparedStatement = con->prepareStatement("INSERT INTO users(name,dni) VALUES(?,?)");
+		preparedStatement->setString(1, name);
+		preparedStatement->setInt(2, dni);
+		preparedStatement->execute();
+
+		std::cout << "Registro insertado" << std::endl;
+	}
+	catch (sql::SQLException e)
+	{
+		std::cout << "No se pudo insertar el nuevo registro" << std::endl;
+		system("pause");
+		exit(1);
+	}
+
+}

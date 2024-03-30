@@ -19,6 +19,7 @@ int main()
 
     User user;
 
+    user.insertUser("Ezequiel", 36069300);
 
     //ConnectDB connect;
     //system("pause");
@@ -68,6 +69,6 @@ int main()
 
     //delete pstmt;
     //delete con;
-    //system("pause");
+    system("pause");
     return 0;
 }
