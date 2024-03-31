@@ -65,3 +65,18 @@ void User::selectAllUsers()
 	delete statement;
 	delete res;
 }
+
+void User::selectOneUser(const int id) {
+	preparedStatement = con->prepareStatement("SELECT*FROM users where id = ?");
+	preparedStatement->setInt(1, id);
+	res = preparedStatement->executeQuery();
+	while (res->next()) {
+		std::cout << "ID: " << res->getInt("id")
+			<< ", Nombre: " << res->getString("name")
+			<< ", DNI; " << res->getInt("dni")
+			<< std::endl;
+	}
+
+	delete preparedStatement;
+	delete res;
+}

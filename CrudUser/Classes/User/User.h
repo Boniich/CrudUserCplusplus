@@ -19,6 +19,7 @@ public:
 
 	void insertUser(std::string name, int dni);
 	void selectAllUsers();
+	void selectOneUser(const int id);
 
 };
 
