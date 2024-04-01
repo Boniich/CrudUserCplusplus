@@ -43,6 +43,10 @@ int main()
 
             user.insertUser(name, dni);
             break;
+        case 5:
+            std::cin >> id;
+            user.deleteUser(id);
+            break;
 
         default:
             break;
