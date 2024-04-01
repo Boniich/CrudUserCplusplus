@@ -47,6 +47,8 @@ void User::insertUser(std::string name, int dni)
 		exit(1);
 	}
 
+	delete preparedStatement;
+
 }
 
 void User::selectAllUsers()
@@ -123,6 +125,7 @@ void User::updateUser(const int id, const std::string name, const int dni)
 
 		
 	}
+	delete preparedStatement;
 }
 
 
