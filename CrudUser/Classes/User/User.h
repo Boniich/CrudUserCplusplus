@@ -20,6 +20,7 @@ public:
 	void insertUser(std::string name, int dni);
 	void selectAllUsers();
 	void selectOneUser(const int id);
+	void deleteUser(const int id);
 
 };
 

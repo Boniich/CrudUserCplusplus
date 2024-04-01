@@ -89,3 +89,26 @@ void User::selectOneUser(const int id) {
 	delete preparedStatement;
 	delete res;
 }
+
+void User::deleteUser(const int id)
+{
+
+	preparedStatement = con->prepareStatement("SELECT*FROM users where id = ?");
+	preparedStatement->setInt(1, id);
+	res = preparedStatement->executeQuery();
+
+	if (!res->next())
+	{
+		std::cout << "No existe un usuario con el ID " << id << std::endl;
+
+	}
+	else {
+		preparedStatement = con->prepareStatement("DELETE FROM users where id = ?");
+		preparedStatement->setInt(1, id);
+		res = preparedStatement->executeQuery();
+		std::cout << "El usuario ha sido eliminado con exito";
+	}
+
+	delete preparedStatement;
+	delete res;
+}
