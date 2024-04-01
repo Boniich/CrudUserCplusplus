@@ -43,6 +43,18 @@ int main()
 
             user.insertUser(name, dni);
             break;
+        case 4:
+            std::cout << "Inserta el ID del usuario a actualizar: ";
+
+            std::cin >> id;
+
+            std::cout << "Inserta el nuevo nombre del usuario: ";
+            std::cin >> name;
+
+            std::cout << "Insertar el nuevo dni del usuario: ";
+            std::cin >> dni;
+            user.updateUser(id, name, dni);
+            break;
         case 5:
             std::cin >> id;
             user.deleteUser(id);
