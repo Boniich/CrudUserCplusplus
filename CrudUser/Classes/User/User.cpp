@@ -90,6 +90,42 @@ void User::selectOneUser(const int id) {
 	delete res;
 }
 
+void User::updateUser(const int id, const std::string name, const int dni)
+{
+	preparedStatement = con->prepareStatement("SELECT*FROM users where id = ?");
+	preparedStatement->setInt(1, id);
+	res = preparedStatement->executeQuery();
+
+	if (!res->next())
+	{
+		std::cout << "No existe un usuario con el ID " << id << std::endl;
+
+	}
+	else {
+		try
+		{
+			preparedStatement = con->prepareStatement("UPDATE users SET name = ?, dni = ? where id = ?");
+			preparedStatement->setString(1, name);
+			preparedStatement->setInt(2, dni);
+			preparedStatement->setInt(3, id);
+			int affectedRows = preparedStatement->executeUpdate();
+			if (affectedRows == 0) {
+				std::cout << "No fue posible actualizar el registro de este usuario" << std::endl;
+			}
+			else {
+				std::cout << "El usuario ha sido actualizado con exito";
+			}
+		}
+		catch (const sql::SQLException e)
+		{
+			std::cout << e.what();
+		}
+
+		
+	}
+}
+
+
 void User::deleteUser(const int id)
 {
 
